@@ -3,9 +3,11 @@
 # General
 --------------------------------------------------------------*/
 body {
+  background: #000;
   font-family: "Open Sans", sans-serif;
   color: #272829;
 }
+
 
 a {
   color: #0563bb;
@@ -55,48 +57,55 @@ h1, h2, h3, h4, h5, h6 {
 # Preloader
 --------------------------------------------------------------*/
 #preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #fff;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+  animation: animate 1s linear infinite;
+  margin-left: 46%;
+  margin-top: 17%;
+}
+@keyframes animate{
+  0%
+  {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  100%
+  {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
 }
 
 #preloader:before {
   content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #0563bb;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: #000;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: animate-preloader 1s linear infinite;
-  animation: animate-preloader 1s linear infinite;
+  z-index: 1000;
 }
 
-@-webkit-keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+#preloader:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+  border-radius: 50%;
+  z-index: 1000;
+  z-index: 1;
+  filter: blur(30px);
 }
 
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -236,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/akshay.jpg") top right no-repeat;
+  background: url("../img/desktop-1245714_1920.jpg") top right no-repeat;
   background-size: cover;
   position: relative;
 }
@@ -247,7 +256,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -259,16 +268,16 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #45505b;
+  color: #AACCFF;
 }
 #hero p {
-  color: #45505b;
+  color: #AACCFF;
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
 }
 #hero p span {
-  color: #0563bb;
+  color: #FEE715FF;
   letter-spacing: 1px;
 }
 #hero .social-links {
@@ -277,7 +286,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #45505b;
+  color: #AACCFF;
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
@@ -319,7 +328,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #45505b;
+  color: #ffffff;
 }
 .section-title h2::before {
   content: "";
@@ -346,11 +355,14 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+
+
+
 .about .content h3 {
   font-weight: 700;
   font-size: 30px;
-  color: #728394;  
-  margin-left: 25px; 
+  color: #fff;  
+  margin-left: 25px;
 }
 
 
@@ -359,7 +371,7 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
   width: 100%;
-  background: #fff;
+  background:#000;
 }
 .contact .info i {
   font-size: 20px;
@@ -379,7 +391,7 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #45505b;
+  color: #fff;
 }
 .contact .info p {
   padding: 0 0 0 60px;
@@ -387,23 +399,24 @@ section {
   font-size: 14px;
   color: #728394;
 }
+
 .contact .info .email, .contact .info .phone {
   margin-top: 40px;
 }
 .contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
   background: #0563bb;
-  color: #fff;
+  color: #000;
 }
 .contact .php-email-form {
   width: 100%;
-  background: #fff;
+  background: #000;
 }
 .contact .php-email-form .form-group {
   padding-bottom: 8px;
 }
 .contact .php-email-form .error-message {
   display: none;
-  color: #fff;
+  color: #000;
   background: #ed3c0d;
   text-align: left;
   padding: 15px;
@@ -414,7 +427,7 @@ section {
 }
 .contact .php-email-form .sent-message {
   display: none;
-  color: #fff;
+  color: #000;
   background: #18d26e;
   text-align: center;
   padding: 15px;
@@ -481,7 +494,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #f7f8f9;
+  background: rgba(1, 5, 26, 0.945);
   color: #45505b;
   font-size: 14px;
   text-align: center;
